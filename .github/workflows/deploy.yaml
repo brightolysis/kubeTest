@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/imprint-ci-cd:latest .
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/imprint-ci-cd:latest .
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_SECRET }}
