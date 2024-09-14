@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+  labels:
+    app: imprint-app-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: imprint-app-test
+  template:
+    metadata:
+      labels:
+        app: imprint-app-test
+    spec:
+      containers:
+        - name: imprint-app-test
+          image: springbootyamldeployment
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
