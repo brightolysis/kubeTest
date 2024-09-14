@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-deployment
+  name: imprint-cicd-deployment
   labels:
     app: imprint-app-test
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: imprint-app-test
-          image: springbootyamldeployment
-          imagePullPolicy: IfNotPresent
+          image: imprint02/imprint-ci-cd:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
