@@ -17,6 +17,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: inject secret into application.properties file
+        run : |
+          echo "CLOUD_PASSWORD=${{ secrets.CLOUD_PASSWORD }}" >> src/main/resources/application.properties
+
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/imprint-ci-cd:latest .
         env:
